@@ -1,0 +1,22 @@
+version: '3'
+services:
+  client:
+    image: docker/client
+    build:
+      context: ./
+      dockerfile: client.Dockerfile
+    command: npm run serve
+    volumes:
+      - ./client:/app
+    ports:
+      - "8080:8080"
+  serve:
+    image: docker/server
+    command: python3 server/app.py
+    build:
+      context: ./
+      dockerfile: server.Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./:/app
