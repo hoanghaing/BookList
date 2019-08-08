@@ -3,5 +3,7 @@ RUN mkdir /app
 WORKDIR /app
 ADD requirements.txt ./
 RUN pip install -r requirements.txt
-ADD ./ ./
-# CMD ["python3", "app.py"]
+COPY . .
+ENV FLASK_APP=server/app.py
+CMD ["flask", "run", "--host", "0.0.0.0"]
+# CMD ["python3", "server/app.py"]
