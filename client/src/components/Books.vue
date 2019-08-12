@@ -156,7 +156,7 @@ export default {
           console.error(error);
         });
     },
-    editBook(book) {
+    editBook(book){
       this.editForm = book;
     },
     onSubmitUpdate(evt) {
@@ -191,7 +191,7 @@ export default {
       this.initForm();
       this.getBooks(); // why?
     },
-    addBook(payload) {
+      addBook(payload) {
       const path = 'http://localhost:5000/books';
       axios.post(path, payload)
         .then(() => {
